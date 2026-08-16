@@ -17,10 +17,11 @@ The correct water measure depends on which rice was chosen:
 
 | Rice | Product | Correct answer |
 |---|---|---|
-| Beras Wangi | Jasmine Sunwhite | **1 1/2 cawan air** |
-| Beras Basmathi | Jasmine Pusa Cream | **1 cawan air** |
+| Beras Wangi | Jasmine Sunwhite | **1 cawan air** |
+| Beras Basmathi | Jasmine Pusa Cream | **1/2 cawan air** |
 
-1/2 cawan is never correct for either.
+1 1/2 cawan is never correct for either. Source: the client's "Sukatan Air Yang Tepat"
+answer key artwork.
 
 This rule lives in exactly one place — `ANSWER_KEY` in `script/js/game.js`. If the ratios
 are ever revised, that object is the only thing to change.
