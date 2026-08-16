@@ -39,3 +39,44 @@
 #correct-screen {
     background-image: url('../../img/screen-correct.jpg');
 }
+
+/* ================================================
+   HOTSPOTS
+   Every tappable region is a transparent rect laid over the printed
+   artwork. Geometry is expressed in PERCENT, never px, so the rects
+   track the background at any display height - this is what replaces
+   Pocky's hard-coded max-height breakpoints.
+
+   Coordinates were measured off the source boards by pixel-scanning
+   the option-card borders, not estimated by eye. Board space is
+   1081x1921; the percentages below are those pixel bounds divided
+   through. See Project Resources/project-plan.md for the measurements.
+   ================================================ */
+.hotspot {
+    position: absolute;
+    cursor: pointer;
+    z-index: var(--z-overlay);
+}
+
+/* ------------------------------------------------
+   SCREEN 1 - PILIH JENIS BERAS
+   Card 1 measured x 274..807, y 741..1270
+   Card 2 measured x 274..807, y 1324..1852
+   Right edge extended to x 875 so the pack shot that overhangs each
+   card is part of the same tap target, and the left edge pulled out to
+   x 243 so the circled option number is inside it too - a player
+   pressing the "1" expects that to count.
+   ------------------------------------------------ */
+#hs-rice-wangi {
+    left: 22.5%;
+    top: 38.6%;
+    width: 58.4%;
+    height: 27.5%;
+}
+
+#hs-rice-basmathi {
+    left: 22.5%;
+    top: 68.9%;
+    width: 58.4%;
+    height: 27.5%;
+}
