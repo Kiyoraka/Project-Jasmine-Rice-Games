@@ -148,11 +148,22 @@
    HOTSPOTS
    Only screens 3 and 4 need these - their CUBA LAGI and TERUSKAN
    buttons are baked into the scene artwork rather than shipped as
-   separate sprites, so there is no element to press. Coordinates are
-   set in Task 2.4.
+   separate sprites, so there is no element to press.
+
+   Both buttons measured at the SAME place on their boards -
+   x 245..863, y 1635..1811 - so CUBA LAGI and TERUSKAN share one
+   geometry and a player's thumb never has to move between them.
    ================================================ */
 .hotspot {
     position: absolute;
     cursor: pointer;
     z-index: var(--z-overlay);
+}
+
+#hs-retry,
+#hs-continue {
+    left: 22.66%;    /* 245 / 1081 */
+    top: 85.11%;     /* 1635 / 1921 */
+    width: 57.26%;   /* 619 / 1081 */
+    height: 9.21%;   /* 177 / 1921 */
 }
