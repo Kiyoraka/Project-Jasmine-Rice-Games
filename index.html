@@ -21,33 +21,46 @@
 
         <!-- ========================================
              SCREEN 1 - PILIH JENIS BERAS
+             Empty stage sprite + two option card sprites
              ======================================== -->
         <div id="rice-screen" class="screen">
-            <div class="hotspot" id="hs-rice-wangi" data-rice="wangi"></div>
-            <div class="hotspot" id="hs-rice-basmathi" data-rice="basmathi"></div>
+            <img class="stage" src="img/bg-rice.png" alt="">
+            <img class="option touchable" id="opt-wangi" data-rice="wangi"
+                 src="img/card-wangi.png" alt="Beras Wangi">
+            <img class="option touchable" id="opt-basmathi" data-rice="basmathi"
+                 src="img/card-basmathi.png" alt="Beras Basmathi">
         </div>
 
         <!-- ========================================
              SCREEN 2 - PILIH SUKATAN AIR
+             Empty stage sprite + three measure bar sprites
              ======================================== -->
         <div id="water-screen" class="screen hidden">
-            <div class="hotspot" id="hs-water-1half" data-water="1.5"></div>
-            <div class="hotspot" id="hs-water-1" data-water="1"></div>
-            <div class="hotspot" id="hs-water-half" data-water="0.5"></div>
+            <img class="stage" src="img/bg-water.png" alt="">
+            <img class="option touchable" id="opt-1half" data-water="1.5"
+                 src="img/bar-1half.png" alt="1 1/2 cawan air">
+            <img class="option touchable" id="opt-1" data-water="1"
+                 src="img/bar-1.png" alt="1 cawan air">
+            <img class="option touchable" id="opt-half" data-water="0.5"
+                 src="img/bar-half.png" alt="1/2 cawan air">
         </div>
 
         <!-- ========================================
              SCREEN 3 - SALAH (try again)
+             Full scene sprite, CUBA LAGI button baked into the art
              ======================================== -->
         <div id="wrong-screen" class="screen hidden">
-            <div class="hotspot hotspot-button" id="hs-retry"></div>
+            <img class="stage" src="img/bg-wrong.png" alt="Jawapan anda salah">
+            <div class="hotspot" id="hs-retry"></div>
         </div>
 
         <!-- ========================================
              SCREEN 4 - BETUL (correct)
+             Full scene sprite, TERUSKAN button baked into the art
              ======================================== -->
         <div id="correct-screen" class="screen hidden">
-            <div class="hotspot hotspot-button" id="hs-continue"></div>
+            <img class="stage" src="img/bg-correct.png" alt="Jawapan anda betul">
+            <div class="hotspot" id="hs-continue"></div>
         </div>
 
     </div>
