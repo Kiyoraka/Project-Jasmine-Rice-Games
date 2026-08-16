@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#EA292C">
+
+    <title>Jasmine Rice Game</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo.png">
+
+    <!-- Master CSS (imports all CSS modules) -->
+    <link rel="stylesheet" href="style/css/master.css">
+</head>
+<body>
+    <!-- Main App Container (9:16 aspect ratio) -->
+    <div id="app">
+
+        <!-- ========================================
+             SCREEN 1 - PILIH JENIS BERAS
+             ======================================== -->
+        <div id="rice-screen" class="screen">
+            <div class="hotspot" id="hs-rice-wangi" data-rice="wangi"></div>
+            <div class="hotspot" id="hs-rice-basmathi" data-rice="basmathi"></div>
+        </div>
+
+        <!-- ========================================
+             SCREEN 2 - PILIH SUKATAN AIR
+             ======================================== -->
+        <div id="water-screen" class="screen hidden">
+            <div class="hotspot" id="hs-water-1half" data-water="1.5"></div>
+            <div class="hotspot" id="hs-water-1" data-water="1"></div>
+            <div class="hotspot" id="hs-water-half" data-water="0.5"></div>
+        </div>
+
+        <!-- ========================================
+             SCREEN 3 - SALAH (try again)
+             ======================================== -->
+        <div id="wrong-screen" class="screen hidden">
+            <div class="hotspot hotspot-button" id="hs-retry"></div>
+        </div>
+
+        <!-- ========================================
+             SCREEN 4 - BETUL (correct)
+             ======================================== -->
+        <div id="correct-screen" class="screen hidden">
+            <div class="hotspot hotspot-button" id="hs-continue"></div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript Modules (load in order) -->
+    <script src="script/js/utils.js"></script>
+    <script src="script/js/game.js"></script>
+    <script src="script/js/ui.js"></script>
+    <script src="script/js/master.js"></script>
+</body>
+</html>
