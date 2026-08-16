@@ -1,0 +1,12 @@
+@import url('base.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('animations.css');
+
+/* ================================================
+   MASTER CSS LOAD ORDER:
+   1. base.css       - CSS variables, reset, viewport
+   2. layout.css     - Screen layouts (rice, water, wrong, correct)
+   3. components.css - Hotspots, buttons, overlays
+   4. animations.css - Transitions, fades, feedback animations
+   ================================================ */
