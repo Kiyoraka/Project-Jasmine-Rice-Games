@@ -1,0 +1,41 @@
+/* ================================================
+   LAYOUT CSS - Jasmine Rice Game
+   Screen layouts and hotspot placement
+   ================================================ */
+
+/* ================================================
+   SHARED SCREEN RULE
+   Every screen fills #app and stacks in the same place.
+   background-size: cover guarantees full-bleed art at any aspect.
+   ================================================ */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: var(--z-content);
+}
+
+/* ================================================
+   SCREEN BACKGROUNDS
+   Source boards are 1081x1921 (9:16 portrait).
+   ================================================ */
+#rice-screen {
+    background-image: url('../../img/screen-rice.jpg');
+}
+
+#water-screen {
+    background-image: url('../../img/screen-water.jpg');
+}
+
+#wrong-screen {
+    background-image: url('../../img/screen-wrong.jpg');
+}
+
+#correct-screen {
+    background-image: url('../../img/screen-correct.jpg');
+}
