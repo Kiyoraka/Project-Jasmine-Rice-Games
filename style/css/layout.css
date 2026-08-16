@@ -32,26 +32,10 @@
     z-index: var(--z-content);
 }
 
-/* ================================================
-   ALIGNMENT UNDERLAY - TEMPORARY
-   The four flat design boards sit behind the sprite layers purely as a
-   measuring reference. Removed in Task 2.6 once every screen registers.
-   ================================================ */
-#rice-screen {
-    background-image: url('../../img/screen-rice.jpg');
-}
-
-#water-screen {
-    background-image: url('../../img/screen-water.jpg');
-}
-
-#wrong-screen {
-    background-image: url('../../img/screen-wrong.jpg');
-}
-
-#correct-screen {
-    background-image: url('../../img/screen-correct.jpg');
-}
+/* The four flat design boards previously sat behind these layers as a
+   measuring underlay. Every screen has been verified to register against
+   them, so both the boards and their rules are gone - the sprites carry
+   the design on their own now. */
 
 /* ================================================
    STAGE - the background sprite layer
