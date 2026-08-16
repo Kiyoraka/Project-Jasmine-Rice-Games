@@ -77,11 +77,34 @@ sprites with their buttons painted in, so those two use a positioned hotspot ins
 All layer geometry is expressed as a percentage of the 1081x1921 design board, so the
 layers track the frame at any display height.
 
+## Audio
+
+| File | What it is | Status |
+|---|---|---|
+| `BGM.mp3` | "Padi Emas" — looping instrumental bed, composed for this game | Original |
+| `Tap.mp3` | Option press | **Placeholder** |
+| `Success.mp3` | BETUL screen | **Placeholder** |
+| `Fail.mp3` | SALAH screen | **Placeholder** |
+
+The background music is deliberately **instrumental**. The screens are Malay and the player
+is reading instructions, so a vocal line would compete with comprehension rather than
+support it.
+
+The music starts on the player's **first touch**, not on load — browsers block autoplay
+until a page has had a user gesture, and this game has no start button to hang that on. The
+listener sits on `#app` so any first touch counts, and it is intentionally not a
+`{ once: true }` listener: if the first gesture is still refused, a once-listener would be
+gone and the kiosk would run silent all day.
+
+**Unverified by automation:** browsers only accept a *trusted* gesture, so a synthetic
+click cannot start the music and browser automation cannot prove playback works. The file
+serves correctly (200, `audio/mpeg`) and the wiring is right, but the first-touch start
+needs one real tap on the target device to confirm.
+
 ## Notes for the next session
 
-- **Sound is placeholder.** Jasmine supplied no audio. `Success.mp3`, `Fail.mp3` and
-  `Tap.mp3` are borrowed from Project Pocky Lucky Draw and need client-approved
-  replacements before delivery.
+- **The three SFX are still placeholders**, borrowed from Project Pocky Lucky Draw. They
+  need client-approved replacements before delivery. The BGM is original and fine to ship.
 - **The answer key was confirmed by Kiyo, not by Jasmine.** Worth one check against the
   pack instructions before the client sees it — it is the only factual claim the game makes.
 - Viewports narrower than 9:16 clip the bottom of the board. This is inherited from the

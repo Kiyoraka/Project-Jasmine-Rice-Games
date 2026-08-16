@@ -60,18 +60,27 @@ window.DEBUG_MODE = false;
 
 const Audio = {
     // Audio elements
+    bgm: null,
     tap: null,
     correct: null,
     wrong: null,
 
     // Audio settings
+    bgmVolume: 0.25,
     sfxVolume: 0.6,
+
+    // BGM must wait for a user gesture - see startBGM below
+    bgmStarted: false,
 
     /**
      * Initialize all audio files
      */
     init() {
         Utils.debug('Audio system initializing...');
+
+        this.bgm = new window.Audio('sound/BGM.mp3');
+        this.bgm.loop = true;
+        this.bgm.volume = this.bgmVolume;
 
         this.tap = new window.Audio('sound/Tap.mp3');
         this.tap.volume = this.sfxVolume;
@@ -83,6 +92,35 @@ const Audio = {
         this.wrong.volume = this.sfxVolume;
 
         Utils.debug('Audio system initialized');
+    },
+
+    /**
+     * Start the background loop.
+     *
+     * Browsers block autoplay until the page has had a user gesture, and
+     * this game has no start button - it boots straight into screen 1.
+     * So the music starts on the player's FIRST tap and runs from then
+     * on. Calling this repeatedly is safe; it only ever starts once.
+     */
+    startBGM() {
+        if (!this.bgm || this.bgmStarted) return;
+        this.bgmStarted = true;
+        this.bgm.play().catch(err => {
+            // Still blocked - let the next gesture try again
+            this.bgmStarted = false;
+            Utils.debug('BGM autoplay blocked:', err);
+        });
+    },
+
+    /**
+     * Stop the background loop
+     */
+    stopBGM() {
+        if (this.bgm) {
+            this.bgm.pause();
+            this.bgm.currentTime = 0;
+            this.bgmStarted = false;
+        }
     },
 
     /**
@@ -119,5 +157,16 @@ const Audio = {
         [this.tap, this.correct, this.wrong].forEach(sound => {
             if (sound) sound.volume = this.sfxVolume;
         });
+    },
+
+    /**
+     * Set BGM volume
+     * @param {Number} volume - Volume level (0.0 to 1.0)
+     */
+    setBGMVolume(volume) {
+        this.bgmVolume = Math.max(0, Math.min(1, volume));
+        if (this.bgm) {
+            this.bgm.volume = this.bgmVolume;
+        }
     }
 };

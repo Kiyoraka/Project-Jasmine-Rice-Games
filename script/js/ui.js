@@ -30,6 +30,21 @@ const UI = {
     },
 
     setupEventListeners() {
+        // Autoplay is blocked until the page has had a user gesture, and
+        // this game has no start button. Listen on the container so ANY
+        // first touch starts the music - including one that misses an
+        // option entirely.
+        //
+        // Deliberately NOT { once: true }: if that first gesture is still
+        // refused by the autoplay policy, a once-listener would be gone
+        // and the game would run silent forever. Audio.startBGM is
+        // idempotent, so leaving it attached costs nothing and lets the
+        // next touch retry.
+        document.getElementById('app').addEventListener(
+            'pointerdown',
+            () => Audio.startBGM()
+        );
+
         // Screen 1 - rice option cards
         document.querySelectorAll('[data-rice]').forEach(el => {
             el.addEventListener('click', () => this.onRiceChosen(el));
