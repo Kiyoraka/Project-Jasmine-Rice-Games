@@ -1,0 +1,71 @@
+/* ================================================
+   COMPONENTS CSS - Jasmine Rice Game
+   Press states, selected states, and overlay behaviour
+   ================================================ */
+
+/* ================================================
+   OPTION SPRITES
+   Real elements, so a press state is a straight transform on the
+   sprite itself - no glow-ring workaround is needed. Each sprite is
+   scaled about its own centre so it presses "into" the board.
+   ================================================ */
+.option {
+    transition: transform var(--transition-fast),
+                filter var(--transition-fast);
+    transform-origin: center center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.option:active,
+.option.pressed {
+    transform: scale(0.96);
+    filter: brightness(1.06);
+}
+
+/* Chosen option holds a lift until the screen changes, so the player
+   sees which one they picked during the transition out. */
+.option.selected {
+    transform: scale(1.04);
+    filter: brightness(1.1) drop-shadow(0 0 18px rgba(255, 255, 255, 0.85));
+}
+
+/* Once a choice is made the other options stop responding, so a fast
+   double-tap cannot register two different answers. */
+.option.locked {
+    pointer-events: none;
+}
+
+/* ================================================
+   HOTSPOT BUTTONS (screens 3 and 4)
+   The button art is baked into the scene sprite, so there is no
+   element to scale. The hotspot presses the whole scene instead -
+   a small scale on the stage reads as the button being pushed.
+   ================================================ */
+.hotspot {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Selected on the SCREEN, not as a sibling combinator - the stage
+   comes before the hotspot in the DOM, so "~" would never match. */
+.screen:has(.hotspot:active) .stage,
+.screen:has(.hotspot.pressed) .stage {
+    transform: scale(0.995);
+}
+
+.stage {
+    transition: transform var(--transition-fast);
+    transform-origin: center bottom;
+}
+
+/* ================================================
+   FADED LAYERS
+   Anything faded out must stop taking taps. Pocky lost a card to this
+   exactly once - an invisible overlay kept swallowing the centre
+   card's presses until pointer-events: none was added
+   (Pocky commit ee218ac). Cheaper to inherit the fix than the bug.
+   ================================================ */
+.fade-out,
+.faded {
+    opacity: 0;
+    pointer-events: none;
+}
