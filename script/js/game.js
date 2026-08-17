@@ -16,15 +16,15 @@ const Game = {
     /**
      * Correct water measure per rice type, taken from the client's
      * "Sukatan Air Yang Tepat" answer key artwork.
-     *   Beras Wangi    (Jasmine Sunwhite)   -> 1 cawan air   bagi 1 cawan beras
-     *   Beras Basmathi (Jasmine Pusa Cream) -> 1/2 cawan air bagi 1 cawan beras
-     * 1 1/2 cawan is never correct for either.
+     *   Beras Wangi    (Jasmine Sunwhite)   -> 1 cawan air     bagi 1 cawan beras
+     *   Beras Basmathi (Jasmine Pusa Cream) -> 1 1/2 cawan air bagi 1 cawan beras
+     * 1/2 cawan is never correct for either.
      *
      * Values match the data-water attributes in index.html.
      */
     ANSWER_KEY: {
         wangi: '1',
-        basmathi: '0.5'
+        basmathi: '1.5'
     },
 
     /**
