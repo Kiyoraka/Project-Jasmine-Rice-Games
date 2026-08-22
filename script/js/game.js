@@ -16,15 +16,16 @@ const Game = {
     /**
      * Correct water measure per rice type, taken from the client's
      * "Sukatan Air Yang Tepat" answer key artwork.
-     *   Beras Wangi    (Jasmine Sunwhite)   -> 1 cawan air     bagi 1 cawan beras
-     *   Beras Basmathi (Jasmine Pusa Cream) -> 1 1/2 cawan air bagi 1 cawan beras
-     * 1/2 cawan is never correct for either.
+     *   Beras Wangi    (Jasmine Sunwhite)   -> 1 cawan air   bagi 1 cawan beras
+     *   Beras Basmathi (Jasmine Pusa Cream) -> 1.8 cawan air bagi 1 cawan beras
+     * 1/2 cawan is never correct for either. (Basmathi was 1 1/2 until the
+     * Aug 22 art drop relabelled the top bar to 1.8.)
      *
      * Values match the data-water attributes in index.html.
      */
     ANSWER_KEY: {
         wangi: '1',
-        basmathi: '1.5'
+        basmathi: '1.8'
     },
 
     /**
@@ -50,7 +51,7 @@ const Game = {
 
     /**
      * Screen 2 - player picked a water measure
-     * @param {String} choice - "1.5", "1" or "0.5"
+     * @param {String} choice - "1.8", "1" or "0.5"
      * @returns {Boolean} Whether the choice is correct for the chosen rice
      */
     isCorrectWater(choice) {

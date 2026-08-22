@@ -18,7 +18,7 @@ The correct water measure depends on which rice was chosen:
 | Rice | Product | Correct answer |
 |---|---|---|
 | Beras Wangi | Jasmine Sunwhite | **1 cawan air** |
-| Beras Basmathi | Jasmine Pusa Cream | **1 1/2 cawan air** |
+| Beras Basmathi | Jasmine Pusa Cream | **1.8 cawan air** |
 
 1/2 cawan is never correct for either. Source: the client's "Sukatan Air Yang Tepat"
 answer key artwork.
@@ -33,7 +33,7 @@ are ever revised, that object is the only thing to change.
       |  tap Beras Wangi or Beras Basmathi
       v
 (2) PILIH SUKATAN AIR
-      |  tap 1 1/2 / 1 / 1/2 cawan
+      |  tap 1.8 / 1 / 1/2 cawan
       +-- wrong --> (3) SALAH  --[CUBA LAGI]--> back to (2), rice choice KEPT
       +-- right --> (4) BETUL  --[TERUSKAN]--> back to (1), full reset
 ```

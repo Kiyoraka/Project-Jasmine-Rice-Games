@@ -89,34 +89,32 @@
 
 /* ------------------------------------------------
    SCREEN 2 - measure bars
-   Colour rect inside each sprite starts at x 14 and the board rect
-   starts at x 82, so every bar offsets by left 68.
-   Green  sprite rect top y 64 -> board y 918  (offset 854)
-   Purple sprite rect top y 57 -> board y 1248 (offset 1191)
-   Orange sprite rect top y 56 -> board y 1578 (offset 1522)
-   Board row pitch is a constant 330px, which is what pinned the green
-   bar - scanning for it directly is unusable because the paddy artwork
-   behind the board is the same family of greens.
+   Aug 22 art drop: 953x300 sprites cropped tight to the plate (about
+   2px of transparent margin, no jug overhanging the top any more).
+   Rows keep the design-02 placement - plate tops at board y 918, 1248,
+   1578 (pitch 330) - so with the plate starting at sprite y 2 the
+   sprite tops are 916, 1246, 1576. Centred at left 64 ((1081-953)/2).
+   The orange bar bottoms out at 1876, inside the 1921 board, sitting
+   on the table exactly as the flat design shows it.
    ------------------------------------------------ */
-#opt-1half {
-    left: 6.29%;     /* 68 / 1081 */
-    top: 44.46%;     /* 854 / 1921 */
-    width: 86.86%;   /* 939 / 1081 */
-    height: 20.09%;  /* 386 / 1921 */
+#opt-1-8,
+#opt-1,
+#opt-half {
+    left: 5.92%;     /* 64 / 1081 */
+    width: 88.16%;   /* 953 / 1081 */
+    height: 15.62%;  /* 300 / 1921 */
+}
+
+#opt-1-8 {
+    top: 47.68%;     /* 916 / 1921 */
 }
 
 #opt-1 {
-    left: 6.29%;     /* 68 / 1081 */
-    top: 61.99%;     /* 1191 / 1921 */
-    width: 88.62%;   /* 958 / 1081 */
-    height: 20.09%;  /* 386 / 1921 */
+    top: 64.86%;     /* 1246 / 1921 */
 }
 
 #opt-half {
-    left: 6.29%;     /* 68 / 1081 */
-    top: 79.23%;     /* 1522 / 1921 */
-    width: 88.62%;   /* 958 / 1081 */
-    height: 20.09%;  /* 386 / 1921 */
+    top: 82.04%;     /* 1576 / 1921 */
 }
 
 /* ================================================
