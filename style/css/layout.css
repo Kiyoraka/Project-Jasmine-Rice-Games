@@ -8,11 +8,12 @@
    That is what lets this game keep Pocky's letterbox without needing
    Pocky's hard-coded max-height breakpoints.
 
-   The designer's sprites turned out to be 1:1 in scale with the flat
-   boards - the Jasmine logo plate measures 412x154 on the board and
-   411x153 in the sprite - so each background needs an OFFSET only, no
-   scaling. All four backgrounds share the same offset because they
-   were exported from a common artboard.
+   The Aug 22 art drop replaced the oversized stage sprites with four
+   full-bleed boards (1082x1922) exported straight from the design
+   artboard - the same 1081x1921 space every percentage below is
+   measured in. So the stage needs no offset and no scaling any more:
+   it simply fills #app. Option sprites and hotspots keep their board
+   coordinates unchanged.
    ================================================ */
 
 /* ================================================
@@ -38,30 +39,20 @@
    the design on their own now. */
 
 /* ================================================
-   STAGE - the background sprite layer
-   Natural size 2152x2464 placed at offset -503, -182 in board space.
-   Derived from the logo plate: sprite (866, 261) maps to board (363, 79).
+   STAGE - the background board layer
+   Full-bleed 1082x1922 boards, 1:1 with the 1081x1921 design space
+   (the extra pixel is export rounding - under 0.1%, invisible). Each
+   board fills #app exactly, so no offset and no oversize are needed.
    ================================================ */
 .stage {
     position: absolute;
-    left: -46.53%;   /* -503 / 1081 */
-    top: -9.47%;     /* -182 / 1921 */
-    width: 199.07%;  /* 2152 / 1081 */
-    height: 128.26%; /* 2464 / 1921 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     max-width: none;
     pointer-events: none;
     z-index: var(--z-background);
-}
-
-/* The SALAH and BETUL plates sit one pixel higher on their artboard:
-   sprite (866, 336) maps to board (363, 155). */
-#wrong-screen .stage,
-#correct-screen .stage {
-    top: -9.42%;     /* -181 / 1921 */
-}
-
-#wrong-screen .stage {
-    width: 199.17%;  /* 2153 / 1081 - this one board is a pixel wider */
 }
 
 /* ================================================
